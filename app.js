@@ -45,7 +45,7 @@ class Bd{
 
 let bd =new Bd()
 
-
+///////// PARTE DE CADASTRAS DESPESA/////////////////////////////
 function cadastrarDespesa(){
    
     let ano = document.getElementById('ano')
@@ -57,14 +57,20 @@ function cadastrarDespesa(){
     
 let despesa = new Despesa(ano.value, mes.value, dia.value, tipo.value, descricao.value,valor.value)
 if(despesa.validarDados()==true){
-    //bd.gravar(despesa) 
+    bd.gravar(despesa) 
     document.getElementById('exampleModalLabel').innerHTML = "Registro inserido com sucesso"
     document.getElementById('modalboy').className= 'modal-body '
     document.getElementById('exampleModalLabel').className= 'modal-title text-success'
+    document.getElementById('modalboy').innerHTML="Despesas foram inseridas com sucesso"
 
     $('#exampleModal').modal('show')
 }else{
-    $('#erroGravacao').modal('show')
+    document.getElementById('exampleModalLabel').innerHTML = "ERRO"
+    document.getElementById('modalboy').className= 'modal-body '
+    document.getElementById('exampleModalLabel').className= 'modal-title text-danger'
+    document.getElementById('modalboy').innerHTML="Prencha todos os campos"
+
+    $('#exampleModal').modal('show')
 }
 }
   function carregarDespesas(){
